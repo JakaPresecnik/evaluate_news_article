@@ -12,7 +12,7 @@
 
 - [ ] Make one request to the Aylien API
 
-- [ ] Use Sass for styling
+- [OK] Use Sass for styling
 
 - [ ] Minify js and styles in the production environment
 
