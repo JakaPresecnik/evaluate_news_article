@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Ma+Shan+Zheng|Poppins&display=swap');
+
+$primary-color: #1491B4;
+$primary-color-light: #5CB5CE;
+$primary-color-dark: #035A73;
+$secondary-color: #360FA3;
+$secondary-color-light: #6744C9;
+$punchy-color: #87ED12;
+$font-header: 'Ma Shan Zheng', cursive;
+$font-stack: 'Poppins', sans-serif;
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: $font-stack;
+
+    header {
+        background-color: $secondary-color;
+        color: $primary-color-light;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 40px;
+        h1 {
+          font-family: $font-header;
+          font-size: 2em;
+        }
+        p {
+          font-size: 1.5em;
+        }
+    }
+
+    main {
+        flex: 2;
+        background-color: $primary-color-light;
+
+        section {
+            max-width: 800px;
+            margin: 50px auto;
+
+            form {
+              background-color: $primary-color;
+
+              #name {
+                &:focus {
+                  border-color: $primary-color-light;
+                }
+              }
+              input[type="submit"] {
+                background-color: $secondary-color;
+                border-color: $primary-color-dark;
+                border-style: solid;
+                color:$punchy-color;
+
+                &:hover {
+                  cursor: pointer;
+                  background-color: $primary-color-dark;
+                  border-color: $punchy-color;
+                }
+                &:active {
+                  background-color: $secondary-color-light;
+                  border-color: $secondary-color-light;
+                }
+              }
+            }
+        }
+    }
+    footer {
+      background-color: $secondary-color;
+      color: $primary-color-light;
+      line-height: 2em;
+    }
+}
