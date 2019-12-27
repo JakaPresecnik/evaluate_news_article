@@ -26,6 +26,27 @@ app.listen(8081, function () {
     console.log('Example app listening on port 8081!')
 })
 
+// setting up aylien API
+const aylien = require("aylien_textapi")
+
+let textapi = new aylien({
+  application_id: process.env.API_ID,
+  application_key: process.env.API_KEY
+})
+
 app.get('/test', function (req, res) {
-    res.send(mockAPIResponse)
+
+    console.log(req.body)
+    // textapi.sentiment({
+    //   'text': req.body.formText,
+    //   'url': 'https://api.aylien.com/api/v1'
+    // }, function(error, response) {
+    //   if (error === null) {
+    //     console.log(response);
+    //     res.send(response);
+    //   }else {
+    //     console.log(error)
+    //   }
+    // });
+
 })
