@@ -1,17 +1,15 @@
 function checkForName(inputText) {
     console.log("::: Running checkForName :::", inputText);
-    let names = [
-        "Picard",
-        "Janeway",
-        "Kirk",
-        "Archer",
-        "Georgiou"
-    ]
-
-    if(names.includes(inputText)) {
-        alert("Welcome, Captain!")
-    }
-}
+    const request = new Request('http://localhost:8081/test', {
+      method: 'POST',
+      credentials: 'same-origin',
+      body: JSON.stringify({formText: inputText}),
+      headers: new Headers({
+          'Content-Type': 'application/json'
+      })
+    });
+    fetch(request)
+  }
 //1.asynchronous function to get the data from openweathermap with parameters entered by user
 const retriveData = async(baseURL, zip, country, apiKey) => {
   const res = await fetch (baseURL+zip+country+apiKey)

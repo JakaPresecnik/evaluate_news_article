@@ -27,15 +27,15 @@ app.listen(8081, function () {
 })
 
 // setting up aylien API
-const aylien = require("aylien_textapi")
+// const aylien = require("aylien_textapi")
+//
+// let textapi = new aylien({
+//   application_id: process.env.API_ID,
+//   application_key: process.env.API_KEY
+// })
 
-let textapi = new aylien({
-  application_id: process.env.API_ID,
-  application_key: process.env.API_KEY
-})
-
-app.get('/test', function (req, res) {
-
+app.post('/test', function (req, res) {
+//FIX FORMHANDLER
     console.log(req.body)
     // textapi.sentiment({
     //   'text': req.body.formText,
