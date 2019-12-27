@@ -14,7 +14,7 @@ let textapi = new aylien({
   application_key: process.env.API_KEY
 })
 
-const apidata = []
+let apidata;
 
 textapi.sentiment({
   'text': 'John is a very good football player!'
