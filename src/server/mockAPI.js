@@ -21,7 +21,7 @@ textapi.sentiment({
 }, function(error, response) {
   if (error === null) {
     console.log(response);
-    apidata.push = response;
+    apidata = response;
   }else {
     console.log(error)
   }
