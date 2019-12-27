@@ -7,13 +7,6 @@ dotenv.config()
 
 const app = express()
 
-var aylien = require("aylien_textapi")
-
-var textapi = new aylien({
-  application_id: process.env.API_ID,
-  application_key: process.env.API_KEY
-});
-
 app.use(bodyParser.urlencoded({ extended:false }))
 app.use(bodyParser.json())
 
