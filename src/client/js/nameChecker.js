@@ -9,8 +9,17 @@ function checkForName(inputText) {
       })
     });
     fetch(request)
-    .then(res => res.json())
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw new Error('Something went wrong');
+      }
+    })
     .then(res => buildEvaluation(res))
+    .catch((error) => {
+      console.log(error)
+    });
   }
 
 function buildEvaluation(response) {
