@@ -9,15 +9,12 @@ function checkForName(inputText) {
       })
     });
     fetch(request)
+    .then(res => res.json())
+    .then(res => buildEvaluation(res))
   }
-//1.asynchronous function to get the data from openweathermap with parameters entered by user
-const retriveData = async(baseURL, zip, country, apiKey) => {
-  const res = await fetch (baseURL+zip+country+apiKey)
-  try {
-    const data = await res.json();
-    return data;
-  }catch (error) {
-    console.log('error', error);
-  }
+
+function buildEvaluation(response) {
+  document.getElementById('results').innerHTML = `<p>Showing results for text <q>${response.text}</q></p><p><strong>Polarity:</strong> ${response.polarity}</p><p><strong>Subjectivity:</strong> ${response.subjectivity}</p>`
 }
-export { retriveData, checkForName }
+
+export { checkForName }
