@@ -14,7 +14,7 @@ function checkForName(inputText) {
   }
 
 function buildEvaluation(response) {
-  document.getElementById('results').innerHTML = `<p>Showing results for text <q>${response.text}</q></p><p><strong>Polarity:</strong> ${response.polarity}</p><p><strong>Subjectivity:</strong> ${response.subjectivity}</p>`
+  document.getElementById('results').innerHTML = `<p><strong>Showing results for text:</strong> <q>${response.text}</q></p><p><strong>Polarity:</strong> ${response.polarity}</p><p><strong>Subjectivity:</strong> ${response.subjectivity}</p>`
 }
 
 export { checkForName }

@@ -72,3 +72,19 @@ body {
       line-height: 2em;
     }
 }
+
+#results {
+  margin: 1em;
+  padding: 1em;
+  p {
+    padding: 0.5em;
+    q {
+      color: $primary-color-dark;
+      font-family: serif;
+      font-style: italic;
+    }
+    strong {
+      font-weight: bold;
+    }
+  }
+}
