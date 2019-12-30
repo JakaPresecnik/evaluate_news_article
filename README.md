@@ -5,7 +5,6 @@ This is a 4th project for Udacity's Front End Developer Nanodegree
 ## Getting started
 
 - Clone the project
-
 - in terminal `cd` into your new folder and run:
   - `npm i`
   - then create `.env` file in root
