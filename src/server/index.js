@@ -34,14 +34,6 @@ let textapi = new aylien({
 })
 
 app.post('/test', function (req, res) {
-/*
-res = {
-polarity: "neutral",
-subjectivity: "subjective",
-text: "sat",
-polarity_confidence: 0.601662278175354,
-subjectivity_confidence: 0.7750173194915261}
-*/
     console.log(req.body)
     textapi.sentiment({
       'text': req.body.formText,
