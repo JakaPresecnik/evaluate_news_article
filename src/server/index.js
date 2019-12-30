@@ -3,7 +3,8 @@ dotenv.config()
 const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
-
+//ADDED TO MAKE THE JEST PASS!
+const regeneratorRuntime = require("regenerator-runtime");
 const app = express()
 
 app.use(bodyParser.urlencoded({ extended:false }))

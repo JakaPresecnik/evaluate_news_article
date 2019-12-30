@@ -1,3 +1,6 @@
+//ADDED TO MAKE THE JEST PASS!
+import "regenerator-runtime/runtime";
+
 function checkForName(inputText) {
     console.log("::: Running checkForName :::", inputText);
     const request = new Request('http://localhost:8081/test', {
