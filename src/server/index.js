@@ -1,18 +1,11 @@
-var path = require('path')
+const dotenv = require('dotenv')
+dotenv.config()
+const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
 const mockAPIResponse = require('./mockAPI.js')
-const dotenv = require('dotenv')
-dotenv.config()
 
 const app = express()
-
-var aylien = require("aylien_textapi")
-
-var textapi = new aylien({
-  application_id: process.env.API_ID,
-  application_key: process.env.API_KEY
-});
 
 app.use(bodyParser.urlencoded({ extended:false }))
 app.use(bodyParser.json())
@@ -33,6 +26,34 @@ app.listen(8081, function () {
     console.log('Example app listening on port 8081!')
 })
 
-app.get('/test', function (req, res) {
-    res.send(mockAPIResponse)
+//setting up aylien API
+const aylien = require("aylien_textapi")
+
+let textapi = new aylien({
+  application_id: process.env.API_ID,
+  application_key: process.env.API_KEY
+})
+
+app.post('/test', function (req, res) {
+/*
+res = {
+polarity: "neutral",
+subjectivity: "subjective",
+text: "sat",
+polarity_confidence: 0.601662278175354,
+subjectivity_confidence: 0.7750173194915261}
+*/
+    console.log(req.body)
+    textapi.sentiment({
+      'text': req.body.formText,
+      'url': 'https://api.aylien.com/api/v1'
+    }, function(error, response) {
+      if (error === null) {
+        console.log(response);
+        res.send(response);
+      }else {
+        console.log(error)
+      }
+    });
+
 })

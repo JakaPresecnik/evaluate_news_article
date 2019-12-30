@@ -1,25 +1,29 @@
 function checkForName(inputText) {
     console.log("::: Running checkForName :::", inputText);
-    let names = [
-        "Picard",
-        "Janeway",
-        "Kirk",
-        "Archer",
-        "Georgiou"
-    ]
-
-    if(names.includes(inputText)) {
-        alert("Welcome, Captain!")
-    }
-}
-//1.asynchronous function to get the data from openweathermap with parameters entered by user
-const retriveData = async(baseURL, zip, country, apiKey) => {
-  const res = await fetch (baseURL+zip+country+apiKey)
-  try {
-    const data = await res.json();
-    return data;
-  }catch (error) {
-    console.log('error', error);
+    const request = new Request('http://localhost:8081/test', {
+      method: 'POST',
+      credentials: 'same-origin',
+      body: JSON.stringify({formText: inputText}),
+      headers: new Headers({
+          'Content-Type': 'application/json'
+      })
+    });
+    fetch(request)
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw new Error('Something went wrong');
+      }
+    })
+    .then(res => buildEvaluation(res))
+    .catch((error) => {
+      console.log(error)
+    });
   }
+
+function buildEvaluation(response) {
+  document.getElementById('results').innerHTML = `<p><strong>Showing results for text:</strong> <q>${response.text}</q></p><p><strong>Polarity:</strong> ${response.polarity}</p><p><strong>Subjectivity:</strong> ${response.subjectivity}</p>`
 }
-export { retriveData, checkForName }
+
+export { checkForName }
