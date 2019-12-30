@@ -7,7 +7,8 @@ This is a 4th project for Udacity's Front End Developer Nanodegree
 - Clone the project
 
 - `cd` into your new folder and run:
-  - `npm run build-dev` or `npm run build-prod`
+  - `npm i`
+  - then create `.env` file in root
 
 
 ### Step 5: Using the API
