@@ -10,13 +10,13 @@
 
 - [OK] Have a minimum of one form field
 
-- [ ] Make one request to the Aylien API
+- [OK] Make one request to the Aylien API
 
 - [OK] Use Sass for styling
 
 - [OK] Minify js and styles in the production environment
 
-- [ ] Response from the API must be added to the view for a user to see
+- OK Response from the API must be added to the view for a user to see
 
 - [OK] Be able to show content offline
 
