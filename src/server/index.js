@@ -3,7 +3,6 @@ dotenv.config()
 const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
-const mockAPIResponse = require('./mockAPI.js')
 
 const app = express()
 
