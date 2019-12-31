@@ -3,7 +3,8 @@ dotenv.config()
 const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
-
+//ADDED TO MAKE THE JEST PASS!
+const regeneratorRuntime = require("regenerator-runtime");
 const app = express()
 
 app.use(bodyParser.urlencoded({ extended:false }))
@@ -34,14 +35,6 @@ let textapi = new aylien({
 })
 
 app.post('/test', function (req, res) {
-/*
-res = {
-polarity: "neutral",
-subjectivity: "subjective",
-text: "sat",
-polarity_confidence: 0.601662278175354,
-subjectivity_confidence: 0.7750173194915261}
-*/
     console.log(req.body)
     textapi.sentiment({
       'text': req.body.formText,
